@@ -1,7 +1,7 @@
 import React from "react";
 import BarChart from "../componentes/BarChart";
 import data from '../data/WaterUse2.json';
-
+import {Container,Row,Col,Jumbotron} from "react-bootstrap";
 const drawFreshWater2 = (props) => {
 
     const {GraficaType, Iteration, Scenario} = props.combinacion.select;
@@ -40,8 +40,23 @@ const drawFreshWater2 = (props) => {
         break;
       }
 
-      return <BarChart data={dataAux}/>
-
+      return (
+<Container fluid>
+            <Row  >
+              <Col >
+              <div style={{height: "100vh"}}>
+              <BarChart data={dataAux}
+                  title="Fresh Water Use 2"
+                  labelposition="bottom"
+                  aspectRatio={false}/></div>
+              </Col>
+              <Col>
+              <div style={{borderStyle:'solid', textAlign:'center', height: "75vh"}}>
+              MAPA
+              </div>
+              </Col>
+            </Row>
+          </Container>);
 }
 
 //Prueba

@@ -1,7 +1,9 @@
 import React from "react";
 import MixedChart from "../componentes/MixedChart.jsx";
 import data from '../data/NetForestCoverChange1.json';
+import {Container,Row,Col} from "react-bootstrap";
 
+import { Responsive as ResponsiveGridLayout } from 'react-grid-layout';
 //filter map
 //nfch=NetForestCoverChange
 const drawNfch = (props) => {
@@ -46,8 +48,12 @@ const drawNfch = (props) => {
     }
     break;
   }
-  return <MixedChart data={dataAux}
-  title="Net Forest Cover Change"/>;
+  return <div style={{height: "100vh"}}>
+<MixedChart data={dataAux}
+  title="Net Forest Cover Change"
+  aspectRatio={false}
+  labelposition="bottom"/>
+  </div>;
 }
 
 

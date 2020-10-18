@@ -42,8 +42,10 @@ const SustainableExporters = (props) => {
   }*/
   var dataAux = convertir(data.combination_1);
 console.log(dataAux)
-return <BarChart data={dataAux}
-title="Sustainable - net exporters"/> 
+return( <div style={{height:"75vh"}}><BarChart data={dataAux}
+title="Sustainable - net exporters"
+aspectRatio={false}
+/></div> );
 }
 
 

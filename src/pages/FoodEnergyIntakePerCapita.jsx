@@ -91,8 +91,10 @@ const drawFoodEnergyIntakePerCapita = (props) => {
       }
       break;
     }
-    return <MixedChart data={dataAux}
-    title="Food energy intake per capita"/>;
+    return <div style={{height:'75vh'}}><MixedChart data={dataAux}
+    aspectRatio={false}
+    labelposition="top"
+    title="Food energy intake per capita"/></div>;
   }
   export default drawFoodEnergyIntakePerCapita;
 

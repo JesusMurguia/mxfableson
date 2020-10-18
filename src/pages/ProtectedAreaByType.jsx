@@ -1,7 +1,7 @@
 import React from "react";
 import BarChart from "../componentes/BarChart.jsx";
 import data from '../data/Protected.json';
-
+import {Container,Row,Col} from "react-bootstrap";
 const drawProtected = (props) => {
 
     const convertir=(props)=> {
@@ -101,7 +101,11 @@ const drawProtected = (props) => {
       }
       break;
     }
-    return <BarChart data={dataAux}
-    title="Protected Areas By Type"/>;
+    return <div style={{height: "100vh"}}>
+<BarChart data={dataAux}
+labelposition='top'
+aspectRatio={false}
+    title="Protected Areas By Type"/>
+  </div>;
   }
   export default drawProtected;

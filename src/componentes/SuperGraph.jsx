@@ -101,15 +101,16 @@ const  drawSuperGraph=(props)=> {
       }
     const options = {
       responsive: true,
+      maintainAspectRatio: props.aspectRatio===undefined?false:props.aspectRatio,
       title: {
         display: true,
         text: props.title
     },legend:{
       labels:{
-        boxWidth:4,
-        fontSize:8
+        boxWidth:props.labelWidth===undefined?20:props.labelWidth,
+      fontSize:props.labelSize===undefined?12:props.labelSize
       },
-      position:'right'
+      position:props.labelposition===undefined?'right':props.labelposition
     },tooltips: {
         mode: 'label'
       },
@@ -168,11 +169,8 @@ const  drawSuperGraph=(props)=> {
         
   
     return (
-        <div>
-       
           <Bar data={props.data}
                 options={options}/>
-        </div>
       );
   }
   export default drawSuperGraph;

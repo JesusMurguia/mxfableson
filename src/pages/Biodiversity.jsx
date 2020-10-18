@@ -1,6 +1,7 @@
 import React from "react";
 import BarChart from "../componentes/BarChart";
 import data from '../data/Biodiversity.json';
+import {Container,Row,Col} from "react-bootstrap";
 //nfch=NetForestCoverChange
 const drawBiodiversity = (props) => 
 {
@@ -47,7 +48,24 @@ const drawBiodiversity = (props) =>
   
 
 
-return <BarChart data={dataAux}/> 
+return (
+<Container fluid>
+            <Row  >
+              <Col >
+              <div style={{height: "100vh"}}>
+                  <BarChart data={dataAux} title="Biodiversity"
+                    aspectRatio={false}
+                    labelposition="bottom"/> 
+              </div>
+              </Col>
+              <Col>
+              <div style={{borderStyle:'solid', textAlign:'center', height: "75vh"}}>
+              MAPA
+              </div>
+              </Col>
+            </Row>
+          </Container>
+);
 }
 
                                                           

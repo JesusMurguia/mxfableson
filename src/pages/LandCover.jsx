@@ -137,7 +137,14 @@ const drawLandCover = (props) => {
       }
       break;
     }
-    return <BarChart data={dataAux}
-    title="Land Cover"/>;
+
+    return (
+    <div style={{height: "100vh"}}>
+<BarChart data={dataAux}
+    title="Land Cover"
+labelposition='top'
+aspectRatio={false}/>
+  </div>
+    );
   }
   export default drawLandCover;

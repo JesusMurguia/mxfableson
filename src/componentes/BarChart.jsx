@@ -7,19 +7,20 @@ import { Bar } from 'react-chartjs-2';
 
 
 const  BarChart=(props)=> {
+  
   const options = {
     responsive: true,
-    maintainAspectRatio: false,
+    maintainAspectRatio: props.aspectRatio===undefined?true:props.aspectRatio,
     title: {
       display: true,
       text: props.title
   },legend:{
     display:true,
     labels:{
-      boxWidth:4,
-      fontSize:8
+      boxWidth:props.labelwidth===undefined?20:props.labelwidth,
+      fontSize:props.labelSize===undefined?12:props.labelSize
     },
-    position:'right'
+    position:props.labelposition===undefined?'right':props.labelposition
   },
     tooltips: {
       mode: 'label'
@@ -74,7 +75,7 @@ const  BarChart=(props)=> {
       ]
     }
   };
-    
+  
     let data=props.data;
           return (
               <Bar data={data}

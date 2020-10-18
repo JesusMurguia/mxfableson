@@ -5,12 +5,14 @@ import "../../node_modules/react-grid-layout/css/styles.css";
 import "../../node_modules/react-resizable/css/styles.css";
 import {Container,Row,Col,Jumbotron} from "react-bootstrap";
 import GridLayout from 'react-grid-layout';
+import { Responsive as ResponsiveGridLayout } from 'react-grid-layout';
+import { WidthProvider, Responsive } from "react-grid-layout";
 
 import MixedChart from "../componentes/MixedChart";
 import data from '../data/GlobalTargets.json';
 import BarChart from '../componentes/BarChart'
 
- 
+const ResponsiveReactGridLayout = WidthProvider(Responsive);
 const drawGlobalTargets = (props) => {
   
 const crearDataTargetUno=(props)=> {
@@ -529,38 +531,70 @@ const crearDataTargetSiete=(props)=> {
 }
   return (
     
-    
-    <div className="GlobalTargets" style={{}}><br></br>
-   <GridLayout className="layout" cols={12} rowHeight={30} width={1200}>
-        <div key="t1" data-grid={{x: 0, y: 0, w: 2.5, h: 6}}><MixedChart 
-        data={dataAuxTargetUno}
-        title="Target 1.- Zero net deforestation"/></div>
-        <div key="t2" data-grid={{x: 2.5, y: 0, w: 2.5, h: 6}}><MixedChart
-        data={dataAuxTargetDos}
-        title="Target 2.- Share of total land which is protected"/></div>
-        <div key="t3" data-grid={{x: 5, y: 0, w: 2.5, h: 6}}><MixedChart 
-        data={dataAuxTargetTres}
-        title="Target 3.- Share of land where natural processes predominate"/></div>
-        <div key="t4" data-grid={{x: 7.5, y: 0, w: 2, h: 6}}><BarChart data={dataAuxTargetCuatro}
-            title="From Agriculture "/></div>
-        <div key="t5" data-grid={{x: 10, y: 0, w: 1.5, h: 6}}><MixedChart 
-        data={dataAuxTargetSiete}
-        title="From Land use change"/></div>
-        <div key="t6" data-grid={{x: 0, y: 1, w: 9, h: 12}}><MixedChart 
-        data={dataAuxTargetCinco}
-        title="Target 5.-  Food security"/></div>
-        <div key="t7" data-grid={{x: 9, y: 1, w: 3, h: 8}}><MixedChart
-        data={dataAuxTargetSeis}
-        title="Target 6.- Fresh water use"/></div>
-      </GridLayout>
-
-
-
-
-
+<div>
+<ResponsiveReactGridLayout
+          className="layout"
+          cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
+          rowHeight={30}
+          isDraggable={false}
+          isResizable={false}
+        >
+          <div key="t1" data-grid={{x: 0, y: 0, w: 2, h: 7,}} >
+          <MixedChart 
+            data={dataAuxTargetUno}
+            title="Target 1.- Zero net deforestation"
+            aspectRatio={false}
+            labelposition="bottom"/>
+        </div>
+        <div key="t2" data-grid={{x: 2, y: 0, w: 2, h: 7}} >
+          <MixedChart
+            data={dataAuxTargetDos}
+            aspectRatio={false}
+            labelposition="bottom"
+            title="Target 2.- Share of total land which is protected"/>
+          </div>
+        <div key="t3" data-grid={{x: 4, y: 0, w: 2, h: 7}}>
+          <MixedChart 
+            data={dataAuxTargetTres}
+            aspectRatio={false}
+            labelposition="bottom"
+            labelWidth={4}
+            labelSize={8}
+            title="Target 3.- Share of land where natural processes predominate"/>
+        </div>
+        <div key="t4" data-grid={{x: 6, y: 0, w: 1.5, h:7}}>
+          <BarChart 
+            data={dataAuxTargetCuatro}
+            aspectRatio={false}
+            labelWidth={4}
+            labelSize={8}
+            labelposition="right"
+            title="From Agriculture "/>
+        </div>
+        <div key="t5" data-grid={{x: 7.5, y: 0, w: 1.5, h: 7}}>
+          <MixedChart 
+            data={dataAuxTargetSiete}
+            aspectRatio={false}
+            labelposition="bottom"
+            title="From Land use change"/>
+        </div>
+        <div key="t6" data-grid={{x: 0, y: 1, w: 7, h: 12}} style={{borderStyle:'none'}}>
+          <MixedChart 
+            data={dataAuxTargetCinco}
+            aspectRatio={false}
+            labelposition="top"
+            title="Target 5.-  Food security"/>
+            </div>
+        <div key="t7" data-grid={{x: 7, y: 1, w: 2.5, h: 8}} style={{borderStyle:'none'}}>
+          <MixedChart
+            data={dataAuxTargetSeis}
+            aspectRatio={false}
+            labelposition="bottom"
+            title="Target 6.- Fresh water use"/>
+            </div>
+        </ResponsiveReactGridLayout>
       </div>
   );
-  
 };
 
 export default drawGlobalTargets;

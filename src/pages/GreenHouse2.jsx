@@ -1,6 +1,7 @@
 import React from "react";
 import BarChart from "../componentes/BarChart";
 import data from '../data/Greenhouse2.json';
+import { Container, Row, Col } from "react-bootstrap";
 //nfch=NetForestCoverChange
 const greenHouse = (props) => {
  
@@ -107,13 +108,24 @@ const greenHouse = (props) => {
   
 
 
-return <div>
-  <BarChart data={dataGraphOneAux}
-title="Green House 2"/> 
-<BarChart data={dataGraphTwoAux}
-title="Green House 2"/> 
+return (
+  <Container fluid>
+    <Row>
+      <Col><div style={{ height: "100vh" }}>
+      <BarChart data={dataGraphOneAux}
+title="Green House 2" aspectRatio={false} 
+labelposition="bottom"/> 
+      </div>
+      </Col>
+      <Col><div style={{ height: "100vh" }}>
+      <BarChart data={dataGraphTwoAux}
+title="Green House 2" aspectRatio={false} 
+labelposition="bottom"/> 
+      </div>
+      </Col>
+    </Row>
+  </Container>);
   
-  </div>
 }
 
 

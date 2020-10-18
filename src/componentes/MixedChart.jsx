@@ -9,17 +9,17 @@ import {Bar} from 'react-chartjs-2';
 
     const options = {
       responsive: true,
-      maintainAspectRatio: false,
+      maintainAspectRatio: props.aspectRatio===undefined?true:props.aspectRatio,
       title: {
         display: true,
         text: props.title
     },legend:{
       display:true,
       labels:{
-        boxWidth:4,
-      fontSize:8
+        boxWidth:props.labelWidth===undefined?20:props.labelWidth,
+      fontSize:props.labelSize===undefined?12:props.labelSize
       },
-      position:'bottom'
+      position:props.labelposition===undefined?'right':props.labelposition
     },tooltips: {
         mode: 'label'
       },
