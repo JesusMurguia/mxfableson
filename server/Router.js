@@ -2,8 +2,8 @@ const{Router}=require('express');
 const router = Router();
 
 
-const{getSustainableImporter}=require ('./db');
+const{getTradeReport}=require ('./db');
 
-router.get('/net',getSustainableImporter);
+router.get('/net',getTradeReport);
 
 module.exports=router;

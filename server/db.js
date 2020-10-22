@@ -10,12 +10,20 @@ const pool = new Pool({
 
 });
 
-const getSustainableImporter= async(req,res)=>
+const getTradeReport= async(req,res)=>
 {
-    const{iteration,product}=req.body;
-    const response = await pool.query('select * from nettrade limit 50');
+    //name, country_id, iteration, Product, year, import_qty, export_qty,  nettrade
+    //iteration can be 1,2,3 or 4
+    //scenathon_id can be 5 or 6
+
+    try{
+                                                                                                                                                                            const{iteration,scenathon_id,name,Product,Year}=req.body;
+    const response = await pool.query('SELECT "name", "iteration","scenathon_id", "Product", "Year", "Export_quantity","Import_quantity" FROM nettrade WHERE "iteration"=$1 AND "scenathon_id"=$2 ',[1,6]);
     res.status(200).json(response.rows);
     //res.send(response);
+    }catch(err){
+        res.send('ola')
+    }
 }
 
-module.exports={getSustainableImporter};
+module.exports={getTradeReport};
